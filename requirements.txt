@@ -1,0 +1,13 @@
+streamlit
+pandas
+numpy
+scikit-learn
+scipy
+statsmodels
+matplotlib
+seaborn
+plotly
+langchain
+langchain-google-genai
+python-dotenv
+datasets

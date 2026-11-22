@@ -220,4 +220,6 @@ marimo/_lsp/
 __marimo__/
 
 # Streamlit
+.env
+.venv/
 .streamlit/secrets.toml
