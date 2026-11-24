@@ -28,30 +28,21 @@ questions = [
      "numbers with noise added. Should I round them to whole numbers, leave "
      "them as continuous, or something else? Please explain the tradeoffs."),
 
-    ("Broken engineered column",
-     "I'm predicting lean_mass_kg. A column called "
-     "'Burns Calories (per 30 min)_bc' has values around 1e19 to 1e20, while "
-     "the original 'Burns Calories (per 30 min)' column ranges from about 129 "
-     "to 382. Should I drop it, try to fix it, or keep it? Please explain "
-     "the tradeoffs."),
-
-    ("Near-constant column",
-     "I'm predicting lean_mass_kg. The column pct_carbs is about 0.50 for "
-     "every row (mean 0.49998, std 0.0015). Should I drop it, keep it, or "
-     "something else? Please explain the tradeoffs."),
-
-    ("Calorie balance negatives",
-     "I'm predicting lean_mass_kg. cal_balance has 2,832 negative values "
-     "(min -1266). I think this is a legitimate calorie deficit rather than "
-     "an error. Should I keep these values as they are? Please explain "
-     "the tradeoffs."),
+    ("Uninformative columns",
+     "I'm predicting lean_mass_kg. Two columns may carry no useful "
+     "information. 'Burns Calories (per 30 min)_bc' has values around 1e19 to "
+     "1e20, while the original 'Burns Calories (per 30 min)' column ranges "
+     "from about 129 to 382. pct_carbs is about 0.50 for every row (std "
+     "0.0015). For each column, should I drop it, fix it, or keep it? Please "
+     "explain the tradeoffs"),
 
     ("Target leakage",
-     "I'm predicting lean_mass_kg. These columns look closely related to "
-     "body composition: Weight (kg), Fat_Percentage, BMI, BMI_calc, and "
-     "protein_per_kg (protein divided by weight). Which of them could leak "
-     "the target, and should I exclude them from the models? Please explain "
-     "the tradeoffs."),
+     "I'm predicting lean_mass_kg. In my dataset, the correlation with "
+     "lean_mass_kg is ___ for Weight (kg), ___ for Fat_Percentage, ___ for "
+     "BMI, and ___ for protein_per_kg (protein divided by weight). Which of "
+     "these could leak the target, and should I exclude them from my models "
+     "if my goal is to understand how workout and nutrition habits relate "
+     "to lean mass? Please explain the tradeoffs"),
 ]
 
 LOG_PATH = "report/ai_log.json"
