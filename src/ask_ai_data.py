@@ -43,6 +43,20 @@ questions = [
      "these could leak the target, and should I exclude them from my models "
      "if my goal is to understand how workout and nutrition habits relate "
      "to lean mass? Please explain the tradeoffs"),
+
+    ("Weight-relationship and weak habit signals",
+     "I'm predicting lean_mass_kg, and I already excluded Weight, "
+     "Fat_Percentage, BMI, and protein_per_kg because lean mass equals "
+     "Weight x (1 - Fat_Percentage/100). My data also shows Calories has "
+     "correlation 0.978 with Weight and 0.963 with lean_mass_kg, cal_balance "
+     "has 0.737 with Weight, and Water_Intake has 0.398 with Weight and 0.435 "
+     "with lean_mass_kg. My workout and nutrition variables have almost no "
+     "correlation with lean_mass_kg: Workout_Frequency 0.025, Proteins "
+     "-0.002, Carbs -0.002, Fats -0.002. Should I exclude Calories, "
+     "cal_balance, and Water_Intake as stand-ins for body size? And how "
+     "should I frame my research question and expectations if habit "
+     "variables show almost no linear relationship? Please explain the "
+     "tradeoffs."),
 ]
 
 LOG_PATH = "report/ai_log.json"
@@ -56,7 +70,7 @@ def already_done():
     return set()
 
 
-def ask_with_retry(question, step, tries=3, wait=30):
+def ask_with_retry(question, step, tries=1, wait=30):
     """Try again if Gemini is temporarily overloaded (503)."""
     for attempt in range(1, tries + 1):
         try:
