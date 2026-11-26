@@ -17,6 +17,9 @@ def clean_data(df):
     )
     df["Experience_Level"] = df["Experience_Level"].round().astype(int)
 
+    # Decision 4 (AI log: "Uninformative columns"): drop broken and near-constant columns
+    df = df.drop(columns=["Burns Calories (per 30 min)_bc", "pct_carbs"])
+
     return df
 
 
