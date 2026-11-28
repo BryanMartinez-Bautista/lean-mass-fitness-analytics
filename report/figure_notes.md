@@ -37,3 +37,41 @@ show little relationship with lean mass in this dataset. The spread within
 groups narrows as frequency and experience rise (standard deviation falls from
 13.9 kg at 2 days to 9.0 kg at 5 days), meaning heavier training groups are
 more similar to each other, even though their averages are close.
+
+## Hypothesis tests
+
+### Test 1: ANOVA, lean mass by workout frequency
+**H0:** Mean lean mass is equal across the four workout-frequency groups.
+
+**Why this test:** I am comparing the means of a continuous variable across more than two groups.
+
+**Result:** F = 14.17, p < 0.001, so I reject H0.
+
+**Interpretation:** The group means differ by under 2 kg, and the groups explain only about 0.2% of the variation, so the difference is real but small. With 20,000 rows, even a small gap becomes significant.
+
+### Test 2: ANOVA, lean mass by experience level
+**H0:** Mean lean mass is equal across the three experience levels.
+
+**Why this test:** Same reasoning as Test 1, with three groups.
+
+**Result:** F = 24.81, p < 0.001, so I reject H0.
+
+**Interpretation:** The effect is tiny (about 0.25% of the variation), so this is statistical significance without practical significance.
+
+### Test 3: Pearson correlation with lean mass
+**H0:** The correlation is 0.
+
+**Why this test:** Both variables are numeric.
+
+**Result:** Workout_Frequency has r = 0.025 (p < 0.001), so I reject H0, but r squared = 0.0006 means it explains less than 0.1% of lean mass. Proteins, Carbs, and Fats all have r about -0.002 with p about 0.8, so I fail to reject H0.
+
+**Interpretation:** There is no evidence that macronutrient intake relates to lean mass in this dataset.
+
+### Test 4: Levene's test, spread of lean mass by workout frequency
+**H0:** The variance of lean mass is equal across the workout-frequency groups.
+
+**Why this test:** ANOVA assumes equal variances, and the standard deviations in my group table differed.
+
+**Result:** W = 87.2, p < 0.001, so I reject H0.
+
+**Interpretation:** Lean mass is much more spread out for people who train 2 days a week than for people who train 5 days a week. This also means the ANOVA assumption is not fully met, though the p-values are small enough that the conclusion is unlikely to change.
