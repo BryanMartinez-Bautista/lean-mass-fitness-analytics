@@ -67,6 +67,19 @@ questions = [
      "within plausible ranges (for example lean mass 31 to 90 kg). Should I "
      "keep them, cap them at the IQR bounds, or remove the rows? Please "
      "explain the tradeoffs for each model."),
+
+    ("Choosing hypothesis tests",
+     "I'm predicting lean_mass_kg (about 31 to 90 kg, 20,000 rows). Mean lean "
+     "mass by Workout_Frequency (2, 3, 4, 5 days/week) is 54.00, 53.12, "
+     "54.09, 54.88 kg with standard deviations 13.93, 13.16, 11.63, 8.95. By "
+     "Experience_Level (1, 2, 3) it is 53.04, 54.10, 54.60 with standard "
+     "deviations 13.40, 13.10, 8.66. The Pearson correlation of "
+     "Workout_Frequency with lean_mass_kg is 0.025, and Proteins, Carbs, and "
+     "Fats are about -0.002. Which formal hypothesis tests are appropriate "
+     "here (for example t-test, ANOVA, Chi-square test, correlation analysis),"
+     " what null hypothesis should each state, and how should I "
+     "interpret a statistically significant but tiny effect with a large "
+     "sample? Please keep it concise."),
 ]
 
 LOG_PATH = "report/ai_log.json"
