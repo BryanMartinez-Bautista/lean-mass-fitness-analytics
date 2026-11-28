@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
@@ -46,3 +47,16 @@ for set_name, cols in feature_sets.items():
 results = pd.DataFrame(rows)
 print(results.to_string(index=False))
 results.to_csv("report/model_results.csv", index=False)
+
+# Feature importance figure (Random Forest on set C)
+best_cols = feature_sets["C: B + Water_Intake"]
+rf = RandomForestRegressor(n_estimators=100, random_state=42, n_jobs=-1)
+rf.fit(df[best_cols], df[target])
+imp = pd.Series(rf.feature_importances_, index=best_cols).sort_values()
+
+plt.figure(figsize=(8, 5))
+imp.plot(kind="barh", color="steelblue")
+plt.xlabel("Feature importance")
+plt.title("Random Forest feature importance (set C)")
+plt.tight_layout()
+plt.savefig("figures/feature_importance.png")
