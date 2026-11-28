@@ -1,0 +1,7 @@
+features,model,R2,RMSE,MAE,CV R2 (5-fold)
+A: habits only,Linear Regression,0.0045,12.462,10.133,0.0031
+A: habits only,Random Forest,0.8849,4.238,2.681,0.8841
+"B: habits + Age, Height",Linear Regression,0.2292,10.966,8.538,0.2319
+"B: habits + Age, Height",Random Forest,0.9785,1.831,1.334,0.9775
+C: B + Water_Intake,Linear Regression,0.3074,10.395,8.016,0.3066
+C: B + Water_Intake,Random Forest,0.9812,1.712,1.264,0.9808
