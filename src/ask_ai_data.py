@@ -80,6 +80,18 @@ questions = [
      " what null hypothesis should each state, and how should I "
      "interpret a statistically significant but tiny effect with a large "
      "sample? Please keep it concise."),
+
+    ("Choosing models and features",
+     "I'm predicting lean_mass_kg (31 to 90 kg, 20,000 rows) with Linear "
+     "Regression as a baseline and Random Forest as an advanced model. I "
+     "excluded Weight, Fat_Percentage, BMI, BMI_calc, protein_per_kg (leakage), "
+     "and Calories and cal_balance (they correlate 0.978 and 0.737 with "
+     "Weight). My habit variables have almost no correlation with lean mass "
+     "(Workout_Frequency 0.025, Proteins, Carbs, Fats about -0.002), while "
+     "Height (0.477) and Water_Intake (0.435) are moderate. Which feature sets "
+     "should I compare, how should I evaluate the models (train/test split, "
+     "cross-validation, metrics), and what R2 should I expect? Please keep "
+     "it concise."),
 ]
 
 LOG_PATH = "report/ai_log.json"
