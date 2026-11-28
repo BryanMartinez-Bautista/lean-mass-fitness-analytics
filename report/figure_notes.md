@@ -75,3 +75,23 @@ more similar to each other, even though their averages are close.
 **Result:** W = 87.2, p < 0.001, so I reject H0.
 
 **Interpretation:** Lean mass is much more spread out for people who train 2 days a week than for people who train 5 days a week. This also means the ANOVA assumption is not fully met, though the p-values are small enough that the conclusion is unlikely to change.
+
+## Model results
+
+Caption: Linear Regression (baseline) and Random Forest (advanced) on three
+feature sets, evaluated on a 20% test set and with 5-fold cross-validation.
+
+Random Forest outperforms Linear Regression on every feature set. On habit
+columns alone, Linear Regression explains almost nothing (R2 = 0.005), matching
+my correlation and hypothesis tests, while Random Forest reaches R2 = 0.885
+(MAE 2.7 kg). Adding Age and Height raises Random Forest to 0.979 (MAE 1.3 kg),
+and adding Water_Intake gives 0.981. Cross-validated R2 closely matches the
+test R2, so the results are not an artifact of one split.
+
+The gap between the two models on habits alone is the main finding. No group of
+habit columns explains it by itself (macros alone: R2 = -0.02; session duration,
+meals, and workout frequency: 0.21), so the pattern comes from combinations of
+columns that a linear model cannot capture. I could not identify the exact
+mechanism. Because the dataset appears to be synthetic, this may reflect how
+the data was generated, so I do not treat it as evidence that habits cause
+lean mass.
