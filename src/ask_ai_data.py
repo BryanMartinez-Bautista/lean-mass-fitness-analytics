@@ -57,6 +57,16 @@ questions = [
      "should I frame my research question and expectations if habit "
      "variables show almost no linear relationship? Please explain the "
      "tradeoffs."),
+
+    ("Outliers",
+     "I'm predicting lean_mass_kg with Linear Regression as a baseline and "
+     "Random Forest as an advanced model. Using the IQR rule on 20,000 rows, "
+     "I found: lean_mass_kg 17 outliers (0.1%), Calories_Burned 507 (2.5%), "
+     "Proteins 403 (2.0%), Carbs 405 (2.0%), and Fats 399 (2.0%). Age, "
+     "Height, Water_Intake, and Session_Duration have none. The values are "
+     "within plausible ranges (for example lean mass 31 to 90 kg). Should I "
+     "keep them, cap them at the IQR bounds, or remove the rows? Please "
+     "explain the tradeoffs for each model."),
 ]
 
 LOG_PATH = "report/ai_log.json"
